@@ -1,0 +1,13 @@
+{
+  "engine": "PPSSPP 1.20.4-wasm",
+  "source": "https://root-hunter.github.io/ppsspp-web/build-wasm/",
+  "publication_revision": "21294328817e37a12b7620aa016d8535166c73b282330a937c49d122467e604e",
+  "observed_web_source_commit": "ea176fd67a0a46c5ff4a1e20fde27cde4268e2a5",
+  "observed_wasm_submodule_commit": "4d0564bc687b86d2f88e132d79ea118e290b004b",
+  "sha256": {
+    "PPSSPPSDL.upstream.js": "a5fe3c77961d8609c6337e7174dc6bce5fc7809bd023be9e0dc820864fb1d000",
+    "PPSSPPSDL.js": "7373e8c9a35124e17ff490744636236bd12fe913f4eb81184c89a4139c789c1b",
+    "PPSSPPSDL.wasm": "88111ce288230617f0f1589bdca16980d4d750af96a2ffff9418ef47db32a157",
+    "PPSSPPSDL.data": "87076b1c68519a2bf03e347f8a16222521f06beca9f3fc74d8743f968eb2c5da"
+  }
+}

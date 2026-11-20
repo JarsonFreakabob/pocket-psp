@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101310">
+  <title>Play · Pocket</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <script src="coi-serviceworker.js"></script>
+  <style>
+    :root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#101310;color:#f1f0e8}*{box-sizing:border-box}body{margin:0}button,a,select{touch-action:manipulation}button,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #f6aa8d;outline-offset:3px}a{color:inherit}header{min-height:82px;display:flex;align-items:center;gap:26px;padding:18px 32px;border-bottom:1px solid #2d322d}.brand{text-decoration:none;font-weight:800;font-size:25px;letter-spacing:-1px;display:flex;gap:10px;align-items:center}.brand-mark{width:30px;height:22px;border:2px solid #f05b35;border-radius:9px;display:grid;place-items:center;color:#f05b35;font-size:14px;letter-spacing:1px}.divider{width:1px;height:28px;background:#343a33}.heading{min-width:0;flex:1}h1{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;margin:0 0 4px}.eyebrow{font:10px ui-monospace,monospace;letter-spacing:1.5px;text-transform:uppercase;color:#a4afa0}.button{background:#252b24;color:#e8ede5;border:1px solid #424b3e;border-radius:8px;padding:10px 14px;display:inline-flex;gap:8px;align-items:center;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap}.button:hover{background:#343d30}.button.primary{background:#f05b35;border-color:#f05b35;color:#fff}.button.primary:hover{background:#d74925}main{max-width:1280px;margin:auto;padding:28px 32px 32px}.player-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px}.live-label{display:inline-flex;align-items:center;gap:8px;font:11px ui-monospace,monospace;letter-spacing:1.3px;color:#b0b9a8}.live-label::before{content:"";width:6px;height:6px;background:#f05b35;border-radius:50%}#save-status{font-size:12px;color:#aeb7a7;text-align:right}.screen-frame{border:1px solid #3c4438;padding:10px;background:#1d231b;border-radius:14px;box-shadow:0 20px 65px #0004}.screen{aspect-ratio:480/272;width:100%;position:relative;overflow:hidden;border-radius:6px;background:#050705}#emulator{position:absolute;inset:0;width:100%;height:100%}#player-message{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;flex-direction:column;gap:18px;padding:30px;text-align:center;background:radial-gradient(ellipse at center,#24311e,#101610 70%)}#player-message[hidden]{display:none}.message-symbol{font-size:36px;font-weight:200;color:#8b9c7b}.message-title{font-size:22px;margin:0;font-weight:550;letter-spacing:-.6px}.message-text{font-size:14px;line-height:1.65;color:#a9b6a0;max-width:480px;margin:0}.player-actions{display:flex;align-items:center;gap:10px;margin:20px 0}.player-actions select{padding:10px;background:#252b24;border:1px solid #424b3e;border-radius:8px;color:inherit;font-size:13px}.action-spacer{flex:1}.state-status{font-size:12px;color:#aeb7a7;min-height:18px;margin:0 0 24px}.details{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding-top:23px;border-top:1px solid #2d322d}.details h2{font-size:11px;letter-spacing:1.5px;font-weight:500;color:#d4ddcc;margin:0 0 15px}.details p{font-size:12px;color:#96a48c;line-height:1.7;margin:0}kbd{font:11px ui-monospace,monospace;border:1px solid #414b3a;border-bottom-width:2px;padding:3px 6px;border-radius:4px;background:#20261d;color:#e1e8d9;white-space:nowrap}.key-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 12px;font-size:12px;color:#a6b29c}.key-row span{min-width:80px}.controls-link{color:#d5dfcb;cursor:pointer;border:0;background:none;padding:0;text-decoration:underline;font-size:12px}dialog{background:#1e271b;color:#e1e8d9;border:1px solid #46513d;border-radius:15px;padding:28px;max-width:520px;width:calc(100% - 32px)}dialog::backdrop{background:#000a}dialog h2{font-size:21px;letter-spacing:-.5px;margin:0 0 20px}dialog p{font-size:13px;line-height:1.7;color:#aebda1}dialog .button{margin-top:14px}.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:1000;padding:13px 20px;border-radius:9px;background:#f4f3eb;color:#26311f;font-size:13px;box-shadow:0 12px 50px #0005;max-width:calc(100% - 32px);text-align:center}.toast[hidden]{display:none}#play-area:fullscreen{display:flex;flex-direction:column;justify-content:center;background:#101310;padding:10px;max-width:none;width:100%}#play-area:fullscreen .screen-frame{width:min(100%,calc((100vh - 120px)*480/272));margin:0 auto}#play-area:fullscreen .player-actions{justify-content:center}.footnote{font-size:11px;color:#66745d;margin:26px 0 0}.error .message-symbol{color:#f6aa8d}@media(max-width:700px){header{padding:16px;gap:14px}.brand{font-size:22px}.divider{display:none}.heading .eyebrow{display:none}header>.button{padding:9px 10px}main{padding:18px 12px}.player-actions{flex-wrap:wrap;gap:7px}.player-actions .button{padding:10px 11px}.action-spacer{display:none}.details{grid-template-columns:1fr;gap:22px}.screen-frame{padding:5px;border-radius:10px}.message-title{font-size:18px}.message-text{font-size:12px}#player-message{gap:10px;padding:16px}.message-symbol{font-size:26px}.player-meta{align-items:flex-start}.live-label{font-size:9px}#save-status{font-size:10px}.state-status{margin-bottom:18px}h1{font-size:13px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+<style>.graphics-panel{border:1px solid #384431;background:#171f15;border-radius:10px;padding:16px 18px;margin:0 0 24px}.graphics-panel>div{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.graphics-panel label{font-size:10px;letter-spacing:1.5px;color:#a4afa0}.graphics-panel select{font:inherit;font-size:12px;color:#e8ede5;background:#252b24;border:1px solid #424b3e;border-radius:6px;padding:10px}.graphics-panel p{font-size:11px;color:#9caa91;line-height:1.8;margin:12px 0 0}@media(max-width:600px){.graphics-panel{padding:14px}.graphics-panel .button{font-size:11px;padding:9px 11px}}</style>
+
+</head>
+<body>
+  <header>
+    <a class="brand" href="./" aria-label="Pocket library"><span class="brand-mark" aria-hidden="true">+ ·</span>Pocket<span style="color:#f05b35">.</span></a>
+    <div class="divider"></div>
+    <div class="heading"><h1 id="game-title">Your next session</h1><div class="eyebrow">PSP for the browser</div></div>
+    <button class="button" id="library-button">← Library</button>
+  </header>
+  <main>
+    <section id="play-area" aria-label="PSP player">
+      <div class="player-meta"><span class="live-label" id="engine-label">PPSSPP / WebAssembly</span><span id="save-status" role="status">Preparing your memory stick…</span></div>
+      <div class="screen-frame"><div class="screen">
+        <div id="emulator" aria-label="Emulator display"></div>
+        <div id="player-message"><span class="message-symbol" aria-hidden="true">◇</span><h2 class="message-title" id="message-title">A little power in your browser.</h2><p class="message-text" id="message-text">Getting your game and saved data ready…</p><a class="button primary" id="message-action" href="./" hidden>Open your library</a></div>
+      </div></div>
+      <div class="player-actions">
+        <button class="button" id="pause-button" disabled>Ⅱ Pause</button>
+        <label for="state-slot" class="eyebrow" style="margin-left:4px">State</label>
+        <select id="state-slot" aria-label="Save state slot"><option value="1">Slot 1</option><option value="2">Slot 2</option><option value="3">Slot 3</option></select>
+        <button class="button" id="save-state" disabled>↓ Save state</button>
+        <button class="button" id="load-state" disabled>↑ Load state</button>
+        <div class="action-spacer"></div>
+        <button class="button" id="fullscreen">⛶ Fullscreen</button>
+        <button class="button primary" id="save-quit" disabled>Save & quit ↗</button>
+      </div>
+    </section>
+    <p class="state-status" id="state-status" role="status">Three quick-save slots, separate from your in-game saves.</p>
+    <section class="graphics-panel" aria-label="Graphics compatibility">
+      <div><label for="graphics-mode">GRAPHICS</label><select id="graphics-mode" aria-describedby="graphics-status"><option value="compatibility">Compatibility · 1×</option><option value="software">Software · fix rendering</option><option value="balanced">Sharper · 2×</option></select><button class="button" id="graphics-apply" disabled>Apply & restart</button><button class="button primary" id="recover-graphics" hidden>Use Software & restart</button></div>
+      <p id="graphics-status" role="status">Start with Compatibility at native resolution. If textures or effects look wrong, try Software (slower). Applying a mode restarts the session and keeps your in-game saves.</p>
+    </section>
+    <div class="details">
+      <section aria-labelledby="controls-title"><h2 id="controls-title">MAKE YOURSELF AT HOME</h2><div class="key-row"><span>Move / D-pad</span><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd></div><div class="key-row"><span>Face buttons</span><kbd>X</kbd><kbd>Z</kbd><kbd>S</kbd><kbd>A</kbd></div><div class="key-row"><span>Start / Select</span><kbd>Enter</kbd><kbd>V</kbd></div><p>Press Escape to open PPSSPP settings, remap controls, or enable touch controls. <button class="controls-link" id="help-button">How saves work</button></p></section>
+      <section aria-labelledby="save-title"><h2 id="save-title">YOUR PROGRESS COMES WITH YOU</h2><p>In-game saves stay in this browser and sync to Pocket every 15 seconds. Use <strong>Save & quit</strong> before leaving, and export a backup from your library to move devices or browsers.</p><p style="margin-top:12px">Quick states depend on the emulator version. Keep an in-game save for the most portable backup.</p></section>
+    </div>
+    <p class="footnote">Powered by PPSSPP WebAssembly. <a href="engine-notices.txt">Open-source credits</a> · PSP software stays on your device.</p>
+  </main>
+  <dialog id="help-dialog"><h2>A memory stick, minus the plastic.</h2><p>Save from inside a game just as you would on a PSP. Pocket copies the entire PSP memory stick into its local database every 15 seconds and when you choose Save & quit.</p><p>Save states freeze the current session in one of three slots. Save & quit preserves in-game saves; use Save state first if you want to resume at an exact moment.</p><p>Use Export backup in your library for a downloadable copy of your saves and states. Clearing site data or using private browsing can remove local progress. Games and saves are not uploaded to GitHub.</p><button class="button primary" id="close-help">Got it</button></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="player.js"></script>
+</body>
+</html>

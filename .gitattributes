@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# Preserve the exact bytes covered by native/runtime-lock.json.
+native/PPSSPPSDL.js -text
+native/PPSSPPSDL.upstream.js -text
+native/PPSSPPSDL.wasm -text
+native/PPSSPPSDL.data -text

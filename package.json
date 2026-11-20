@@ -1,0 +1,1 @@
+{"name":"pocket-psp","version":"1.0.0","private":true,"type":"module","license":"GPL-3.0-or-later","description":"Static PSP emulator for GitHub Pages","scripts":{"test":"node --test storage.test.mjs player.test.mjs events.test.mjs engine-loader.test.mjs graphics.test.mjs controls-native.test.mjs","start":"node serve.mjs"}}
