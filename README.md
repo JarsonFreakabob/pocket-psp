@@ -2,6 +2,8 @@
 
 A static PSP emulator for GitHub Pages, with a local game library and persistent saves. Bring your own PSP game files; games and progress stay on your device.
 
+**[Open Pocket](https://jarsonfreakabob.github.io/pocket-psp/)**
+
 ## Everyday use
 
 1. Add a local ISO, CSO, PBP, or ELF to the library.

@@ -20,4 +20,6 @@ Earlier browser storage checks also verified duplicate imports, library edits ac
 
 The test game is not included in this package. Commercial game compatibility, performance, audible output, physical gamepads, and the Acer N23H7's ARM64 hardware have not been verified. Start with Compatibility at 1× on that device; try Software if rendering is incorrect.
 
-GitHub Pages deployment is prepared in `.github/workflows/pages.yml`. Publication and testing on the final hosted origin remain pending authenticated GitHub access. Local browser saves belong to their original site origin and do not automatically move to a later hosted URL.
+GitHub Pages is published at [jarsonfreakabob.github.io/pocket-psp](https://jarsonfreakabob.github.io/pocket-psp/). The [initial deployment](https://github.com/JarsonFreakabob/pocket-psp/actions/runs/44759988739) passed all 51 tests, syntax checks and native asset verification on GitHub's Linux runner.
+
+The live hosted origin was also tested in a fresh Chrome profile: browser isolation activated, the native runtime rendered the PSP program, pause/resume worked, and the saved state's exact bytes survived exiting and reopening before successful restoration. Invalid state data was rejected, changing the renderer preserved fresh memory-stick bytes, and ordinary save/load caused zero downloads. Local preview saves belong to a different site origin and do not automatically move to the hosted URL.
